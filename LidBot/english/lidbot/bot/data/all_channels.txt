@@ -1,2 +1,0 @@
-# Put one public channel username per line, e.g. dubai_chat
-
