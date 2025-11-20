@@ -1,0 +1,4 @@
+telethon>=1.28.0
+pymorphy3>=2.0.0
+requests>=2.28.0
+
