@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+venv/
+.idea/
+.DS_Store
+
+# Telegram session files
+*.session
+*.session-journal
+
+# Excel files (may contain sensitive data)
+*.xlsx
+
+# Cache and temporary files
+*.cache
+*.log
+
