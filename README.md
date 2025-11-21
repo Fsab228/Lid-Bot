@@ -2,97 +2,97 @@
 
 <div align="center">
 
-**Умный userbot для автоматического поиска и фильтрации лидов на аренду автомобилей в Telegram каналах**
+**Smart userbot for automatic search and filtering of car rental leads in Telegram channels**
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![Telethon](https://img.shields.io/badge/Telethon-1.28+-green.svg)](https://github.com/LonamiWebs/Telethon)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-[Features](#-возможности) • [Installation](#-установка) • [Usage](#-использование) • [Configuration](#-настройка)
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Configuration](#-configuration)
 
 </div>
 
 ---
 
-## 📖 Описание
+## 📖 Description
 
-Telegram Lead Bot - это минималистичный userbot, который автоматически мониторит множество Telegram каналов и пересылает **ТОЛЬКО** клиентские запросы на аренду автомобилей. Бот использует интеллектуальную фильтрацию с морфологическим анализом для точного определения лидов.
+Telegram Lead Bot is a minimalistic userbot that automatically monitors multiple Telegram channels and forwards **ONLY** client requests for car rentals. The bot uses intelligent filtering with morphological analysis for accurate lead detection.
 
-Мы создали этого бота, чтобы автоматизировать поиск потенциальных клиентов в Telegram. Бот имеет следующие возможности:
+We built this bot to automate the search for potential clients in Telegram. The bot has the following capabilities:
 
-- **Мониторинг множества каналов** одновременно
-- **Умная фильтрация** с использованием морфологического анализа (pymorphy3)
-- **Фильтрация только клиентских запросов** - блокирует рекламу продавцов
-- **Автоматическое кэширование** ID каналов для быстрого запуска
-- **Защита от спама** - фильтрация запрещенных тематик
+- **Monitor multiple channels** simultaneously
+- **Smart filtering** using morphological analysis (pymorphy3)
+- **Filter only client requests** - blocks seller advertisements
+- **Automatic caching** of channel IDs for fast startup
+- **Spam protection** - filters banned topics
 
-Бот построен максимально эффективно. Нет сложных настроек - просто добавьте каналы и запустите.
+The bot is built as efficiently as possible. No complex settings - just add channels and run.
 
-## ✨ Возможности
+## ✨ Features
 
-### Основные функции
-- 🔍 **Автоматический поиск лидов** - мониторинг множества каналов в реальном времени
-- 🧠 **Умная фильтрация** - морфологический анализ для точного определения запросов
-- 🎯 **Только клиентские запросы** - автоматическая блокировка рекламы продавцов
-- 🚫 **Защита от спама** - фильтрация запрещенных тематик (наркотики, скам, 18+)
-- 📊 **Кэширование каналов** - быстрое разрешение username в ID
-- 🔗 **Ссылки на сообщения** - автоматическое формирование ссылок на найденные лиды
-- ⚡ **Асинхронность** - высокая производительность благодаря async/await
+### Main Functions
+- 🔍 **Automatic lead search** - real-time monitoring of multiple channels
+- 🧠 **Smart filtering** - morphological analysis for accurate request detection
+- 🎯 **Only client requests** - automatic blocking of seller advertisements
+- 🚫 **Spam protection** - filters banned topics (drugs, scams, 18+)
+- 📊 **Channel caching** - fast username to ID resolution
+- 🔗 **Message links** - automatic link generation for found leads
+- ⚡ **Asynchronous** - high performance thanks to async/await
 
-### Фильтрация
-- ✅ **Пропускает:** клиентские запросы на аренду авто ("нужна машина", "ищу авто в аренду")
-- ❌ **Блокирует:** рекламу продавцов, вакансии, такси, недвижимость, спам
+### Filtering
+- ✅ **Allows:** client requests for car rental ("need a car", "looking for car rental")
+- ❌ **Blocks:** seller advertisements, job postings, taxis, real estate, spam
 
-## 🚀 Установка
+## 🚀 Installation
 
-Telegram Lead Bot поддерживает Python 3.8 и выше.
+Telegram Lead Bot supports Python 3.8 and above.
 
-### Шаг 1: Установка зависимостей
+### Step 1: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Этот проект зависит от следующих пакетов:
+This project depends on the following packages:
 
-- `telethon` - библиотека для работы с Telegram API
-- `pymorphy3` - морфологический анализатор для русского языка
-- `requests` - для отправки сообщений через Bot API
+- `telethon` - library for working with Telegram API
+- `pymorphy3` - morphological analyzer for Russian language
+- `requests` - for sending messages via Bot API
 
-### Шаг 2: Получение API credentials
+### Step 2: Get API Credentials
 
-#### Telegram API ID и API Hash:
-1. Перейдите на [my.telegram.org](https://my.telegram.org/)
-2. Войдите используя ваш номер телефона
-3. Перейдите в раздел "API development tools"
-4. Создайте новое приложение
-5. Скопируйте `api_id` и `api_hash`
+#### Telegram API ID and API Hash:
+1. Go to [my.telegram.org](https://my.telegram.org/)
+2. Log in using your phone number
+3. Go to "API development tools" section
+4. Create a new application
+5. Copy `api_id` and `api_hash`
 
-#### Telegram Bot Token (опционально):
-1. Откройте [@BotFather](https://t.me/BotFather) в Telegram
-2. Отправьте команду `/newbot`
-3. Следуйте инструкциям для создания бота
-4. Скопируйте полученный токен
+#### Telegram Bot Token (optional):
+1. Open [@BotFather](https://t.me/BotFather) in Telegram
+2. Send command `/newbot`
+3. Follow the instructions to create a bot
+4. Copy the received token
 
-#### User ID (для получения лидов):
-1. Откройте [@userinfobot](https://t.me/userinfobot) в Telegram
-2. Отправьте команду `/start`
-3. Скопируйте ваш User ID
+#### User ID (for receiving leads):
+1. Open [@userinfobot](https://t.me/userinfobot) in Telegram
+2. Send command `/start`
+3. Copy your User ID
 
-### Шаг 3: Настройка
+### Step 3: Configuration
 
-Откройте файл `d.py` и настройте следующие параметры:
+Open file `d.py` and configure the following parameters:
 
 ```python
-API_ID = 12345678              # Ваш API ID
-API_HASH = "your_api_hash"    # Ваш API Hash
-BOT_TOKEN = "your_bot_token"  # Токен бота (или "" если не используете)
-DEST_CHAT_ID = 123456789      # Ваш Telegram ID для получения лидов
+API_ID = 12345678              # Your API ID
+API_HASH = "your_api_hash"    # Your API Hash
+BOT_TOKEN = "your_bot_token"  # Bot token (or "" if not using)
+DEST_CHAT_ID = 123456789      # Your Telegram ID for receiving leads
 ```
 
-### Шаг 4: Добавление каналов
+### Step 4: Add Channels
 
-Создайте файл `all_channels.txt` и добавьте каналы (по одному на строку):
+Create file `all_channels.txt` and add channels (one per line):
 
 ```
 @dubai_chat
@@ -100,236 +100,236 @@ DEST_CHAT_ID = 123456789      # Ваш Telegram ID для получения л�
 https://t.me/dubai_cars
 ```
 
-Или используйте файл `channel_ids_cache.json` для кэшированных ID каналов (быстрее).
+Or use `channel_ids_cache.json` file for cached channel IDs (faster).
 
-### Шаг 5: Запуск
+### Step 5: Run
 
 ```bash
 python d.py
 ```
 
-При первом запуске вас попросят авторизоваться через Telegram (введите номер телефона и код подтверждения).
+On first run, you will be asked to authorize via Telegram (enter phone number and confirmation code).
 
-## 📝 Использование
+## 📝 Usage
 
-### Основной файл (d.py)
+### Main File (d.py)
 
-Бот автоматически:
-1. Загружает список каналов из `all_channels.txt` или `channel_ids_cache.json`
-2. Разрешает username в ID (если используется файл с username)
-3. Начинает мониторинг всех указанных каналов
-4. Фильтрует сообщения по ключевым словам
-5. Пересылает найденные лиды в указанный чат
+The bot automatically:
+1. Loads channel list from `all_channels.txt` or `channel_ids_cache.json`
+2. Resolves usernames to IDs (if using username file)
+3. Starts monitoring all specified channels
+4. Filters messages by keywords
+5. Forwards found leads to specified chat
 
-### Пример работы
+### Example
 
-**Входное сообщение в канале:**
+**Input message in channel:**
 ```
-Нужна машина в аренду на неделю. Кто может помочь?
-```
-
-**Бот пересылает:**
-```
-🔎 Найдено сообщение в Dubai Chat:
-
-Нужна машина в аренду на неделю. Кто может помочь?
-
-👉 Открыть сообщение
+Need a car for rent for a week. Who can help?
 ```
 
-### Что фильтруется
+**Bot forwards:**
+```
+🔎 Found message in Dubai Chat:
 
-**Пропускается (клиентские запросы):**
-- "Нужна машина в аренду"
-- "Ищу авто напрокат"
-- "Хочу арендовать автомобиль"
-- "Где можно взять машину?"
+Need a car for rent for a week. Who can help?
 
-**Блокируется (реклама продавцов):**
-- "Сдаю машину в аренду"
-- "Предлагаем авто напрокат"
-- "У нас в наличии машины"
-- Сообщения с телефонами/URL
+👉 Open message
+```
 
-**Блокируется (нерелевантное):**
-- Вакансии ("Требуется водитель")
-- Такси/попутчики ("Еду из Дубая")
-- Недвижимость ("Студия в аренду")
-- Запрещенные тематики (наркотики, скам, 18+)
+### What Gets Filtered
+
+**Allowed (client requests):**
+- "Need a car for rent"
+- "Looking for car rental"
+- "Want to rent a car"
+- "Where can I get a car?"
+
+**Blocked (seller advertisements):**
+- "Renting out a car"
+- "We offer car rental"
+- "We have cars in stock"
+- Messages with phones/URLs
+
+**Blocked (irrelevant):**
+- Job postings ("Driver needed")
+- Taxi/rideshare ("Going from Dubai")
+- Real estate ("Studio for rent")
+- Banned topics (drugs, scams, 18+)
 
 ## 📋 API Reference
 
-### Конфигурация
+### Configuration
 
-Все настройки находятся в начале файла `d.py`:
+All settings are at the beginning of `d.py` file:
 
 ```python
 API_ID = 12345678                    # Telegram API ID
 API_HASH = "your_api_hash"          # Telegram API Hash
-SESSION_NAME = "userbot_session"    # Имя файла сессии
-GROUPS_FILE = "all_channels.txt"    # Файл со списком каналов
-BOT_TOKEN = "your_bot_token"        # Токен бота (опционально)
-DEST_CHAT_ID = 123456789            # ID чата для получения лидов
-PROXIMITY_WINDOW = 3                # Расстояние между ключевыми словами
+SESSION_NAME = "userbot_session"    # Session file name
+GROUPS_FILE = "all_channels.txt"    # File with channel list
+BOT_TOKEN = "your_bot_token"        # Bot token (optional)
+DEST_CHAT_ID = 123456789            # Chat ID for receiving leads
+PROXIMITY_WINDOW = 3                # Distance between keywords
 ```
 
-### Основные функции
+### Main Functions
 
 #### `safe_lemma(word)`
-Лемматизация слова для русского языка. Использует pymorphy3 для кириллицы, иначе возвращает lowercase.
+Lemmatizes word for Russian language. Uses pymorphy3 for Cyrillic, otherwise returns lowercase.
 
-**Пример:**
+**Example:**
 ```python
 safe_lemma("машины")  # -> "машина"
 safe_lemma("car")     # -> "car"
 ```
 
 #### `extract_username(line)`
-Извлекает username из строки (поддерживает ссылки t.me и обычные username).
+Extracts username from string (supports t.me links and regular usernames).
 
-**Пример:**
+**Example:**
 ```python
 extract_username("https://t.me/dubai_chat")  # -> "dubai_chat"
 extract_username("@dubai_chat")              # -> "dubai_chat"
 ```
 
 #### `has_proximity(lemmas, left_set, right_set, window)`
-Проверяет, встречаются ли леммы из двух множеств на расстоянии <= window слов.
+Checks if lemmas from two sets occur within distance <= window words.
 
-**Пример:**
+**Example:**
 ```python
 lemmas = ["нужна", "машина", "аренду"]
 has_proximity(lemmas, CAR_LEMMAS, INTENT_LEMMAS, 3)  # -> True
 ```
 
-### Словари ключевых слов
+### Keyword Dictionaries
 
-Бот использует несколько словарей для фильтрации:
+The bot uses several dictionaries for filtering:
 
-- `CAR_LEMMAS` - слова связанные с автомобилями
-- `INTENT_LEMMAS` - слова намерения клиента ("нужно", "ищу", "хочу")
-- `OFFER_LEMMAS` - слова продавца ("сдаю", "предлагаю", "цена")
-- `JOB_LEMMAS` - слова связанные с вакансиями
-- `TAXI_LEMMAS` - слова связанные с такси/попутчиками
-- `RENTAL_KEYWORDS` - ключевые слова аренды
+- `CAR_LEMMAS` - words related to cars
+- `INTENT_LEMMAS` - client intent words ("need", "looking", "want")
+- `OFFER_LEMMAS` - seller words ("renting", "offering", "price")
+- `JOB_LEMMAS` - words related to job postings
+- `TAXI_LEMMAS` - words related to taxi/rideshare
+- `RENTAL_KEYWORDS` - rental keywords
 
-## ⚙️ Настройка
+## ⚙️ Configuration
 
-### Изменение окна близости
+### Changing Proximity Window
 
-В файле `d.py`:
+In `d.py` file:
 
 ```python
-PROXIMITY_WINDOW = 3  # Расстояние (в словах) между ключевыми словами
+PROXIMITY_WINDOW = 3  # Distance (in words) between keywords
 ```
 
-### Добавление новых ключевых слов
+### Adding New Keywords
 
-Отредактируйте соответствующие словари в `d.py`:
+Edit corresponding dictionaries in `d.py`:
 
 ```python
 RAW_CAR_LEMMAS = {
-    "машина", "авто", "car",  # Добавьте свои слова
+    "машина", "авто", "car",  # Add your words
     # ...
 }
 ```
 
-### Автосохранение валидных каналов
+### Auto-saving Valid Channels
 
 ```python
-AUTO_WRITE_CLEANED = True  # Автоматически сохранять валидные username
+AUTO_WRITE_CLEANED = True  # Automatically save valid usernames
 CLEANED_USERNAMES_FILE = "active_channels_usernames.txt"
 ```
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 telegram-lead-bot/
-├── d.py                          # Главный файл бота
-├── requirements.txt              # Зависимости Python
-├── README.md                     # Документация
-├── all_channels.txt              # Список каналов для мониторинга
-├── channel_ids_cache.json        # Кэш ID каналов (создается автоматически)
-├── active_channels_usernames.txt # Валидные username (создается автоматически)
-└── userbot_session.session       # Файл сессии (создается при авторизации)
+├── d.py                          # Main bot file
+├── requirements.txt              # Python dependencies
+├── README.md                     # Documentation
+├── all_channels.txt              # List of channels to monitor
+├── channel_ids_cache.json        # Channel ID cache (created automatically)
+├── active_channels_usernames.txt # Valid usernames (created automatically)
+└── userbot_session.session       # Session file (created on authorization)
 ```
 
-## 🛠️ Технологии
+## 🛠️ Technologies
 
-- **Python 3.8+** - язык программирования
-- **Telethon 1.28+** - библиотека для работы с Telegram API
-- **pymorphy3 2.0+** - морфологический анализатор для русского языка
-- **requests** - для отправки сообщений через Bot API
+- **Python 3.8+** - programming language
+- **Telethon 1.28+** - library for Telegram API
+- **pymorphy3 2.0+** - morphological analyzer for Russian language
+- **requests** - for sending messages via Bot API
 
-## 🔒 Безопасность
+## 🔒 Security
 
-- ✅ Файлы сессии (`.session`) не попадают в Git (добавлены в `.gitignore`)
-- ✅ API credentials хранятся в коде (можно вынести в `.env`)
-- ✅ Рекомендуется хранить файлы сессии в безопасности
-- ✅ Не публикуйте файлы сессии в публичных репозиториях
+- ✅ Session files (`.session`) are not committed to Git (added to `.gitignore`)
+- ✅ API credentials are stored in code (can be moved to `.env`)
+- ✅ It's recommended to keep session files secure
+- ✅ Don't publish session files in public repositories
 
-## 🐛 Решение проблем
+## 🐛 Troubleshooting
 
-### Бот не запускается
-- Проверьте правильность API_ID и API_HASH
-- Убедитесь, что все зависимости установлены
-- Проверьте наличие файла `all_channels.txt`
+### Bot Won't Start
+- Check API_ID and API_HASH correctness
+- Make sure all dependencies are installed
+- Check if `all_channels.txt` file exists
 
-### Бот не находит лиды
-- Проверьте, что каналы добавлены в `all_channels.txt`
-- Убедитесь, что бот имеет доступ к каналам
-- Проверьте логи на наличие ошибок
+### Bot Not Finding Leads
+- Check that channels are added to `all_channels.txt`
+- Make sure bot has access to channels
+- Check logs for errors
 
-### Ошибки авторизации
-- Удалите файл `userbot_session.session` и авторизуйтесь заново
-- Проверьте правильность API_ID и API_HASH
+### Authorization Errors
+- Delete `userbot_session.session` file and authorize again
+- Check API_ID and API_HASH correctness
 
-### Слишком много/мало сообщений
-- Настройте словари ключевых слов в `d.py`
-- Измените `PROXIMITY_WINDOW` для более строгой/мягкой фильтрации
+### Too Many/Few Messages
+- Configure keyword dictionaries in `d.py`
+- Change `PROXIMITY_WINDOW` for stricter/looser filtering
 
-## 📊 Производительность
+## 📊 Performance
 
-- Бот может мониторить сотни каналов одновременно
-- Использует кэширование для быстрого разрешения username
-- Асинхронная обработка сообщений для высокой производительности
-- Морфологический анализ с кэшированием для быстрой работы
+- Bot can monitor hundreds of channels simultaneously
+- Uses caching for fast username resolution
+- Asynchronous message processing for high performance
+- Morphological analysis with caching for fast operation
 
-## 🤝 Вклад в проект
+## 🤝 Contributing
 
-Telegram Lead Bot - это проект с открытым исходным кодом!
+Telegram Lead Bot is an open source project!
 
-Этот проект постоянно развивается, и мы приветствуем любой вклад или обратную связь.
+This project is constantly evolving, and we welcome any contribution or feedback.
 
-**Открытые задачи:**
-- Добавление поддержки других языков
-- Улучшение фильтрации
-- Добавление веб-интерфейса для управления
-- Оптимизация производительности
+**Open Tasks:**
+- Adding support for other languages
+- Improving filtering
+- Adding web interface for management
+- Performance optimization
 
-Если вы хотите внести вклад:
+If you want to contribute:
 
-1. Fork репозиторий
-2. Создайте ветку для новой функции (`git checkout -b feature/AmazingFeature`)
-3. Зафиксируйте изменения (`git commit -m 'Add some AmazingFeature'`)
-4. Отправьте в ветку (`git push origin feature/AmazingFeature`)
-5. Откройте Pull Request
+1. Fork the repository
+2. Create a branch for new feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Лицензия
+## 📄 License
 
-Этот проект создан для образовательных целей. Используйте на свой страх и риск.
+This project is created for educational purposes. Use at your own risk.
 
-## ⭐ Благодарности
+## ⭐ Acknowledgments
 
-- [Telethon](https://github.com/LonamiWebs/Telethon) - отличная библиотека для Telegram
-- [pymorphy3](https://github.com/kmike/pymorphy3) - морфологический анализатор для русского языка
+- [Telethon](https://github.com/LonamiWebs/Telethon) - excellent library for Telegram
+- [pymorphy3](https://github.com/kmike/pymorphy3) - morphological analyzer for Russian language
 
 ---
 
 <div align="center">
 
-**Сделано с ❤️ используя Python и Telethon**
+**Made with ❤️ using Python and Telethon**
 
-⭐ Если проект вам понравился, поставьте звезду!
+⭐ If you liked the project, give it a star!
 
 </div>
